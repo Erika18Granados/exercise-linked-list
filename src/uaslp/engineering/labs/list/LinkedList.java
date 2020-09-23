@@ -6,14 +6,22 @@ public class LinkedList {
     private Node front;
     private Node tail;
 
-    public class IteratorLinkedList<type> {
-        public type field;
+    public enum InsertPosition {
+        BEFORE,
+        AFTER
+    }
 
-        public <type> type method(type filed) {
+    public class Iterator {
+        private Node currentNode;
+
+        public Student next(){
             return null;
         }
 
 
+        public boolean hasNext() {
+            return false;
+        }
     }
 
     public void add(Student student) {
@@ -28,8 +36,8 @@ public class LinkedList {
 
     }
 
-    public IteratorLinkedList getIterator() {
-        return new IteratorLinkedList();
+    public Iterator getIterator() {
+        return new Iterator();
     }
 
     public int size() {
@@ -41,7 +49,7 @@ public class LinkedList {
         return null;
     }
 
-    public void insert(Student reference, Student newStudent) {
+    public void insert(Student reference, Student newStudent, InsertPosition insertPosition) {
 
     }
 

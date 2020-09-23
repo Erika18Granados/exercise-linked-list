@@ -6,7 +6,7 @@ public class Node {
     public Student student;
     //SOBRECARGA
     public Node previous;
-    public Node Next;
+    public Node next;
 
     public void setStudent(Student student) { //CAMBIAR EL VALOR DE STUDENT DE LA CLASE
         this.student = student;
@@ -21,9 +21,9 @@ public class Node {
         return previous;
     }
     public void setNext(Node next) {
-        this.Next = next;
+        this.next = next;
     }
     public Node getNext() {
-        return Next;
+        return next;
     }
 }
