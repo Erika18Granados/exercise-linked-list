@@ -27,4 +27,14 @@ public class LinkedList {
 
     }
 
+    public class IteratorLinkerList {
+        public type fiel;
+
+        public type method(type) {
+
+        }
+
+
+    }
+
 }
