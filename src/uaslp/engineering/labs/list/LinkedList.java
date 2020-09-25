@@ -1,3 +1,4 @@
+//PAQUETES
 package uaslp.engineering.labs.list;
 
 import uaslp.engineering.labs.model.Student;
@@ -6,24 +7,33 @@ public class LinkedList {
     private Node front;
     private Node tail;
     private int size;
-
+    //CONSTANTE DE NUMERACION
     public enum InsertPosition {
         BEFORE,
         AFTER
     }
-
+    //CLASE PARA RECORRER LA LISTA
+    //NOTA: ESTA ES UNA INNER CLASS (UNA CLASE DENTRO DE UNA CLASE)
+    //SUS METODOS Y ATRIBUTOS PUEDEN SER UTILIZADOS POR LOS OBJETOS DE LA CLASE PADRE (HERENCIA)
+    //EN CAMBIO LA PALABRA STATIC ES PARA LA CLASE EN SI
     public class Iterator {
+        //ATRIBUTO (NODO ACTUAL)
         public Node currentNode;
+        //CONSTRUCTOR
         public Iterator() {
             this.currentNode = front;
         }
+        //REGRESA VERDADERO O FALSO
+        //PREGUNTA SI HAY UN SIGUIENTE
         public boolean hasNext() {
             return currentNode != null;
         }
+        //SI NO HAY NUNGUN NODO REGRESA NULL
         public Student next() {
             if(currentNode == null){
                 return null;
             }
+            //SI HAY MAS NODOS, EMPEZARA A RECORRER Y A REGRESAR LOS NODOS REORRIDOS
             Student currentStudent = currentNode.getStudent();
             currentNode = currentNode.getNext();
             return currentStudent;
@@ -36,14 +46,17 @@ public class LinkedList {
 
     public void add(Student student) {
         Node nuevo =  new Node(student);
-
+        //SI EL TAMANIO ES 0
         if (size == 0) {
             front = tail = nuevo;
         }else {
+            //AGREGA EL NODO NUEVO EN EL FINAL DE LA LISTA
            tail.setNext(nuevo);
+           //ENLAZA EL NODO NUEVO
            nuevo.setPrevious(tail);
            tail = nuevo;
         }
+        //INCREMENTA EL TAMANIO
         size++;
 
 
@@ -86,10 +99,12 @@ public class LinkedList {
         size--;
     }
 
+    //COMO ES UNA CLASE SE CREO EL OBJETO ITERADOR
     public Iterator getIterator() {
         return new Iterator();
     }
 
+    //OBTIENE EL TAMANIO
     public int getSize() {
         return size;
 
@@ -97,9 +112,11 @@ public class LinkedList {
 
     public Student getAt(int index) {
         Node currentNode = front;
+        //RECRRE LA LISTA
         for (int counter = 0; counter < index && counter < size; counter++) {
             currentNode = currentNode.getNext();
         }
+        //REGRESA EL NODO ACTUL: SI EL NODO ACTUAL ES DIFERENTE DE NULL REGRESA EL ESTUDUANTE ACTUAL SINO REGRESA NULL
         return currentNode != null ? currentNode.getStudent() : null;
     }
 
@@ -110,6 +127,7 @@ public class LinkedList {
         }
 
         Node aux = front;
+        //AUX VA A RECORRER LA LISTA MIENTRAS SEA DISERENTE DE REFERENCIA
         while(!aux.getStudent().equals(reference)) {
             aux = aux.getNext();
 

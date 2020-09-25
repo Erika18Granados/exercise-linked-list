@@ -11,7 +11,7 @@ public class Node {
     public Node(Student student) {
         this.student = student;
     }
-
+    //METODOS
     public void setStudent(Student student) { //CAMBIAR EL VALOR DE STUDENT DE LA CLASE
         this.student = student;
     }
